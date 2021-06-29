@@ -3,8 +3,11 @@
 ## DWM
 
 - [Systray](https://dwm.suckless.org/patches/systray/)
-- [Alpha - Transparency](https://dwm.suckless.org/patches/alpha/)
+- [Alpha - Transparency](https://dwm.suckless.org/patches/alpha/) : Removed it since it doesn't play well along with Systray.
 - [Autostart](https://dwm.suckless.org/patches/autostart/)
+- For skippy-xd to work :
+  - [Warp](https://dwm.suckless.org/patches/warp/)
+  - [focusonnetactive](https://dwm.suckless.org/patches/focusonnetactive/)
 
 ## DMENU
 
