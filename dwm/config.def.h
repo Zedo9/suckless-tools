@@ -1,3 +1,6 @@
+/* Media Keys */
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -99,11 +102,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("skippy-xd") },
 	/* Laptop and Media Keys */
-	{ MODKEY,                       XK_F1, spawn, {.v = playstop } },
-	{ MODKEY,                       XK_F2, spawn, {.v = next } },
-	{ MODKEY,                       XK_F3, spawn, {.v = prev } },
-	{ MODKEY,                      	XK_F6, spawn, SHCMD("light -A 2") },
-	{ MODKEY,                       XK_F5, spawn, SHCMD("light -U 2") },
+	{ 0,                       		XF86XK_AudioPlay, spawn, {.v = playstop } },
+	{ 0,                       		XF86XK_AudioNext, spawn, {.v = next } },
+	{ 0,                       		XF86XK_AudioPrev, spawn, {.v = prev } },
+	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 2") },
+	{ 0,                       		XF86XK_MonBrightnessDown, spawn, SHCMD("light -U 2") },
 	
 
 	TAGKEYS(                        XK_ampersand,              0)
