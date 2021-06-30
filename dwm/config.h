@@ -1,6 +1,3 @@
-/* Media Keys */
-#include <X11/XF86keysym.h>
-
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -67,6 +64,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
+static const char *playstop[]   = { "playerctl", "play-pause", NULL };
+static const char *next[]   = { "playerctl", "next", NULL };
+static const char *prev[]   = { "playerctl", "previous", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -98,11 +99,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("skippy-xd") },
 	/* Laptop and Media Keys */
-	{ 0,                       		XF86XK_AudioPlay, spawn, SHCMD("playerctl play-pause") },
-	{ 0,                       		XF86XK_AudioNext, spawn, SHCMD("playerctl next") },
-	{ 0,                       		XF86XK_AudioPrev, spawn, SHCMD("playerctl previous") },
-	{ 0,                       		XF86XK_MonBrightnessUp , spawn, SHCMD("light -A 2") },
-	{ 0,                       		XF86XK_MonBrightnessDown, spawn, SHCMD("light -U 2") },
+	{ MODKEY,                       XK_F1, spawn, {.v = playstop } },
+	{ MODKEY,                       XK_F2, spawn, {.v = next } },
+	{ MODKEY,                       XK_F3, spawn, {.v = prev } },
+	{ MODKEY,                      	XK_F6, spawn, SHCMD("light -A 2") },
+	{ MODKEY,                       XK_F5, spawn, SHCMD("light -U 2") },
 	
 
 	TAGKEYS(                        XK_ampersand,              0)
