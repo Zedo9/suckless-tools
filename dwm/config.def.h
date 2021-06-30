@@ -1,4 +1,5 @@
-/* See LICENSE file for copyright and license details. */
+/* Media Keys */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
@@ -12,9 +13,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "SourceCodePro-Medium:size=10:antilias=true:autohint=true" };
 static const char dmenufont[]       = "SourceCodePro-Medium:size=10:antilias=true:autohint=true";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#ffffff";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
@@ -93,9 +94,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	
 	/* Programs */
-	{ MODKEY,                       XK_w,      spawn,          CMD("firefox") },
-	{ MODKEY,                       XK_f,      spawn,          CMD("nautilus") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("skippy-xd") },
+	/* Laptop and Media Keys */
+	{ 0,                       		XF86XK_AudioPlay, spawn, SHCMD("playerctl play-pause") },
+	{ 0,                       		XF86XK_AudioNext, spawn, SHCMD("playerctl next") },
+	{ 0,                       		XF86XK_AudioPrev, spawn, SHCMD("playerctl previous") },
+	
 
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
