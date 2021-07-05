@@ -25,8 +25,8 @@ static const char *colors[][3]      = {
 };
 /* tagging */
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
-
+/*static const char *tags[] = { "", "", "", "", "", "", "", "", "" };*/
+static const char *tags[] = { "WEB", "COD", "TER", "APP", "MUS"};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -114,10 +114,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_quotedbl,               2)
 	TAGKEYS(                        XK_apostrophe,             3)
 	TAGKEYS(                        XK_parenleft,              4)
-	TAGKEYS(                        XK_section,                5)
-	TAGKEYS(                        XK_egrave,                 6)
-	TAGKEYS(                        XK_exclam,                 7)
-	TAGKEYS(                        XK_ccedilla,               8)
+	//TAGKEYS(                        XK_section,                5)
+	//TAGKEYS(                        XK_egrave,                 6)
+	//TAGKEYS(                        XK_exclam,                 7)
+	//TAGKEYS(                        XK_ccedilla,               8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
