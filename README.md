@@ -8,6 +8,7 @@
 - For skippy-xd to work :
   - [Warp](https://dwm.suckless.org/patches/warp/)
   - [focusonnetactive](https://dwm.suckless.org/patches/focusonnetactive/)
+- [Hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
 
 ## DMENU
 
