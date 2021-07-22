@@ -13,8 +13,10 @@
 
 ## DMENU
 
-- [Center]()
-- [Alpha]()
+**Not Installed**
+
+- Center
+- Alpha
 
 # Installing patches
 
