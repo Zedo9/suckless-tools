@@ -74,7 +74,7 @@ static const char *prev[]   = { "playerctl", "previous", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY          ,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -104,7 +104,7 @@ static Key keys[] = {
 	
 	/* Programs */
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("pcmanfm") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("skippy-xd") },
 	/* Laptop and Media Keys */
 	{ 0,                       		XF86XK_AudioPlay, spawn, {.v = playstop } },
