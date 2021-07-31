@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SourceCodePro-Medium:size=10:antilias=true:autohint=true" };
-static const char dmenufont[]       = "SourceCodePro-Medium:size=10:antilias=true:autohint=true";
+static const char *fonts[]          = { "CascadiaCode-Medium:size=10:antilias=true:autohint=true" };
+static const char dmenufont[]       = "CascadiaCode-Medium:size=10:antilias=true:autohint=true";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#ffffff";
@@ -74,7 +74,7 @@ static const char *prev[]   = { "playerctl", "previous", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY          ,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
