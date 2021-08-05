@@ -104,7 +104,7 @@ static Key keys[] = {
 	
 	/* Programs */
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("pcmanfm") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("skippy-xd") },
 	/* Laptop and Media Keys */
 	{ 0,                       		XF86XK_AudioPlay, spawn, {.v = playstop } },
