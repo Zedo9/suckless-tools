@@ -1,2 +1,2 @@
 #!/bin/sh
-rm -rf config.h && sudo make clean install 
+rm -rf blocks.h && sudo make clean install 
