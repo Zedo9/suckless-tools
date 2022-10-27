@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -14,7 +14,7 @@ static const int topbar             = 1;     /* 0 means bottom bar */
 static const char *fonts[]          = { "MesloLGS NF-Regular:size=13:antilias=true:autohint=true" };
 static const char dmenufont[]       = "MesloLGS NF-Regular:size=13:antilias=true:autohint=true";
 
-#include "themes/default.h"
+#include "themes/gruvbox.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
@@ -29,6 +29,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       0,       			0,           0,           -1 },
 	{ "Mpv",  		NULL,       NULL,       0,       			1,           1,           -1 },
 	{ "Discord",  NULL,       NULL,       0,       			1,           1,           -1 },
+	{ "Megasync",  NULL,       NULL,       0,       			1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -81,8 +82,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_v,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_y,  		 setlayout,      {0} },
-	{ MODKEY,   					          XK_space,  		 togglefloating, {0} },
+	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,   					          XK_y,  		 togglefloating, {0} },
 	
 	/* Media Keys */
 	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 5") },
