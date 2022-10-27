@@ -54,3 +54,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+dmenu
+dmenu_path
+dmenu_run
+dmenu.1
+stest
+stest.1
