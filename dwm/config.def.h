@@ -11,10 +11,10 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "MesloLGS NF-Regular:size=13:antilias=true:autohint=true" };
-static const char dmenufont[]       = "MesloLGS NF-Regular:size=13:antilias=true:autohint=true";
+static const char *fonts[]          = { "MesloLGS Nerd Font:size=13:antilias=true:autohint=true"};
+static const char dmenufont[]       = "MesloLGS Nerd Font:size=13:antilias=true:autohint=true";
 
-#include "themes/gruvbox.h"
+#include "themes/default.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
@@ -58,7 +58,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -87,7 +87,11 @@ static const Key keys[] = {
 	
 	/* Media Keys */
 	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 5") },
-	{ 0,                       		XF86XK_MonBrightnessDown, spawn, SHCMD("light -U 5") },
+	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 5") },
+	{ 0,                       		XF86XK_AudioPlay, spawn, SHCMD("playerctl play-pause") },
+	{ 0,                       		XF86XK_AudioStop, spawn, SHCMD("playerctl stop") },
+	{ 0,                       		XF86XK_AudioPrev, spawn, SHCMD("playerctl previous") },
+	{ 0,                       		XF86XK_AudioNext, spawn, SHCMD("playerctl next") },
 
 	/* Move - Resize */
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
