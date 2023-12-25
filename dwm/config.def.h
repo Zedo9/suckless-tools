@@ -11,8 +11,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "MesloLGS Nerd Font:size=13:antilias=true:autohint=true"};
-static const char dmenufont[]       = "MesloLGS Nerd Font:size=13:antilias=true:autohint=true";
+static const char *fonts[]          = { "Meslo LG M:size=13:antilias=true:autohint=true", "Monospace:size=13:antilias=true:autohint=true" };
+static const char dmenufont[]       = "Meslo LG M:size=13:antilias=true:autohint=true";
 
 #include "themes/default.h"
 
@@ -57,7 +57,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL};
+static const char *emojicmd[] = { "rofi", "-modi", "emoji", "-show", "emoji", NULL}; // rofi -modi emoji -show emoji
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
@@ -66,7 +68,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             					XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("nautilus") },
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("thunar") },
+    { MODKEY,                       XK_v,      spawn,        SHCMD("x-clip-manager") },
+    { MODKEY,                       XK_e,      spawn,        {.v = emojicmd } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -81,13 +85,13 @@ static const Key keys[] = {
 	{ MODKEY,             					XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_v,      setlayout,      {.v = &layouts[2]} },
+	// { MODKEY,                       XK_v,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY,   					          XK_y,  		 togglefloating, {0} },
 	
 	/* Media Keys */
 	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 5") },
-	{ 0,                      		XF86XK_MonBrightnessUp, spawn, SHCMD("light -A 5") },
+	{ 0,                      		XF86XK_MonBrightnessDown, spawn, SHCMD("light -U 5") },
 	{ 0,                       		XF86XK_AudioPlay, spawn, SHCMD("playerctl play-pause") },
 	{ 0,                       		XF86XK_AudioStop, spawn, SHCMD("playerctl stop") },
 	{ 0,                       		XF86XK_AudioPrev, spawn, SHCMD("playerctl previous") },
@@ -112,9 +116,9 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_Right,  moveresizeedge, {.v = "R"} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_o,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_o,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
 	/* Gaps */
